@@ -28,7 +28,7 @@ public class LoginPage {
         loginButton.click();
     }
 
-    public SelenideElement getErrorNotification() {
-        return errorNotification.shouldBe(visible);
+    public void errorNotificationShouldBeVisible() {
+        errorNotification.shouldBe(visible);
     }
 }
