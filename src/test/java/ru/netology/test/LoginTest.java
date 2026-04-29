@@ -6,7 +6,6 @@ import ru.netology.data.DataHelper;
 import ru.netology.data.SQLHelper;
 import ru.netology.page.LoginPage;
 
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
 
 public class LoginTest {
@@ -37,6 +36,6 @@ public class LoginTest {
         loginPage.invalidLogin(wrongAuth);
         loginPage.invalidLogin(wrongAuth);
 
-        loginPage.getErrorNotification().shouldBe(visible);
+        loginPage.errorNotificationShouldBeVisible();
     }
 }
