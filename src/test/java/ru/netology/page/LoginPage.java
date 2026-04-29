@@ -14,13 +14,15 @@ public class LoginPage {
     private final SelenideElement errorNotification = $("[data-test-id=error-notification]");
 
     public VerificationPage validLogin(DataHelper.AuthInfo info) {
-        loginField.setValue(info.getLogin());
-        passwordField.setValue(info.getPassword());
-        loginButton.click();
+        fillAndSubmit(info);
         return new VerificationPage();
     }
 
     public void invalidLogin(DataHelper.AuthInfo info) {
+        fillAndSubmit(info);
+    }
+
+    private void fillAndSubmit(DataHelper.AuthInfo info) {
         loginField.setValue(info.getLogin());
         passwordField.setValue(info.getPassword());
         loginButton.click();
