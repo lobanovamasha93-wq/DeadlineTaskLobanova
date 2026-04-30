@@ -36,6 +36,7 @@ public class LoginTest {
         loginPage.invalidLogin(wrongAuth);
         loginPage.invalidLogin(wrongAuth);
 
-        loginPage.errorNotificationShouldBeVisible();
+        loginPage.errorNotificationShouldHaveBlockedUserMessage();
     }
 }
+
