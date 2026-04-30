@@ -3,7 +3,7 @@ package ru.netology.page;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.data.DataHelper;
 
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -24,12 +24,15 @@ public class LoginPage {
     }
 
     private void fillAndSubmit(DataHelper.AuthInfo info) {
+        loginField.clear();
         loginField.setValue(info.getLogin());
+        passwordField.clear();
         passwordField.setValue(info.getPassword());
         loginButton.click();
     }
 
-    public void errorNotificationShouldBeVisible() {
-        errorNotification.shouldBe(visible).shouldHave(text("Ошибка"));
+    public void errorNotificationShouldHaveBlockedUserMessage() {
+        errorNotification.shouldBe(visible)
+            .shouldHave(exactText("Ошибка! Пользователь заблокирован"));
     }
 }
