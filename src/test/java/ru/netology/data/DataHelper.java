@@ -17,10 +17,6 @@ public class DataHelper {
         return new AuthInfo("vasya", "qwerty123");
     }
 
-    public static AuthInfo getSecondUser() {
-        return new AuthInfo("petya", "123qwerty");
-    }
-
     public static AuthInfo getInvalidUser() {
         return new AuthInfo("vasya", "wrongPassword");
     }
