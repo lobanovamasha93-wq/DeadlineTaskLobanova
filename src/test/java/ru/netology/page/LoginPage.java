@@ -5,6 +5,8 @@ import ru.netology.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
+import org.openqa.selenium.Keys;
+
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
@@ -24,9 +26,9 @@ public class LoginPage {
     }
 
     private void fillAndSubmit(DataHelper.AuthInfo info) {
-        loginField.clear();
+        loginField.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
         loginField.setValue(info.getLogin());
-        passwordField.clear();
+        passwordField.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
         passwordField.setValue(info.getPassword());
         loginButton.click();
     }
@@ -36,3 +38,4 @@ public class LoginPage {
             .shouldHave(exactText("Ошибка! Пользователь заблокирован"));
     }
 }
+
